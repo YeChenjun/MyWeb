@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PrivteWeb</title>
+    <script type="text/javascript" src="jQuery/jquery-3.5.1.js"> </script>
+    <script type="text/javascript" src="jQuery/jquery-ui.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <link href="Webcs.css" rel="stylesheet" type="text/css" />
+    <link href="player/index.css" rel="stylesheet" type="text/css" />
+    <script src="texiao/yanhua.js"></script>
+
+</head>
+
+<body id="body" class="bai" style="height:100%;" oncontextmenu="return false;" onselectstart="return false">
+
+<div id="loading">
+    <img alt="" src="picture/2233load.gif"><br>
+</div>
+
+<div><img src="picture/flowerm.png" alt="" id="bj"></div>
+
+<div><img src="picture/太阳.png" alt="" id="taiyang"></div>
+
+<div id="jishiben" style="display: none">
+    <div class="jin">
+        <input  v-model="inputValue" @keyup.enter="add" placeholder="你想说什么.." onfocus="this.placeholder=''" class="in">
+    </div>
+    <div class="jli-box">
+        <div class="jli" v-for="(item,idex) in list">
+            <div>
+                <span>{{idex + 1}}.</span>
+                <label>{{item}}</label>
+            </div>
+        </div>
+    </div>
+    <div class="jf-box">
+        <div class="itemNum" style="margin: 3px">
+            {{list.length}} items
+         </div>
+        <div style="margin: 3px" @click="remove">
+            clear
+        </div>
+    </div>
+</div>
+
+<div id="all">
+<div id="div1" class="">
+    <a href="http://www.bilibili.tv" target = "_blank" id="lianjie1">
+    <img src="picture/bilibili.png" id="bili" class="photo">
+    </a>
+</div>
+<div id="div2" class="">
+    <a href="https://weibo.com/u/5653500034/home?leftnav=1" target = "_blank" id="lianjie2">
+    <img src="picture/weibo.png" id="weibo" class="photo">
+    </a>
+</div>
+<div id="div3" class="">
+    <a href="http://i.mooc.chaoxing.com/space/index?t=1591944171888" target = "_blank" id="lianjie3">
+    <img src="picture/chaoxing.jpg" id="chaoxing" class="photo">
+    </a>
+</div>
+<div id="div4" class="">
+    <a href="http://www.tmall.com" target = "_blank" id="lianjie4">
+    <img src="picture/天猫.png" id="tianmao" class="photo">
+    </a>
+</div>
+</div>
+
+
+
+<div id="allBiao">
+<div id="biao1" class="">
+
+    <table class="table">
+    <tr>
+        <td>Video</td>
+        <td>Shop</td>
+        <td>Job</td>
+        <td>Music</td>
+        <td>POWER</td>
+        <td>Live</td>
+    </tr>
+    <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    </tr>
+    <tr>
+        <td><a href="https://www.iqiyi.com/" target = "_blank"> 爱奇艺 </a></td>
+        <td><a href="https://www.taobao.com/" target = "_blank"> 淘宝 </a></td>
+        <td><a href="https://www.51job.com/" target = "_blank" >前程 </a> </td>
+        <td><a href="http://www.kugou.com/" target = "_blank" >酷狗 </a> </td>
+        <td><a href="https://www.toolnb.com/" target = "_blank">工具 </a></td>
+        <td><a href="https://www.douyu.com/" target = "_blank">斗鱼</a></td>
+    </tr>
+    <tr>
+        <td><a href="https://www.youku.com/" target = "_blank"> 优酷 </a></td>
+        <td><a href="https://www.suning.com/" target = "_blank" >苏宁 </a> </td>
+        <td><a href="https://www.tianyancha.com/" target = "_blank">天眼查</a></td>
+        <td><a href="https://music.163.com/" target = "_blank" >网易云 </a> </td>
+        <td><a href="https://www.zhihu.com/" target = "_blank">知乎 </a></td>
+        <td><a href="https://www.yy.com/" target = "_blank">YY</a></td>
+    </tr>
+    <tr>
+        <td><a href="https://v.qq.com/" target = "_blank" >腾讯 </a> </td>
+        <td><a href="https://ju.taobao.com/" target = "_blank">聚划算</a></td>
+        <td><a href="https://www.zhipin.com/" target = "_blank">BOSS</a></td>
+        <td><a href="https://y.qq.com/" target = "_blank" >QQ </a> </td>
+        <td></td>
+        <td><a href="https://egame.qq.com/" target = "_blank">企鹅</a></td>
+    </tr>
+    <tr>
+        <td><a href="https://www.mgtv.com/" target = "_blank"> 芒果 </a></td>
+        <td><a href="https://www.jd.com/" target = "_blank">京东</a></td>
+        <td><a href="https://www.shixiseng.com/" target = "_blank">实习僧</a></td>
+        <td><a href="https://www.xiami.com/" target = "_blank" >虾米</a> </td>
+        <td></td>
+        <td><a href="https://www.huya.com/" target = "_blank">虎牙</a></td>
+    </tr>
+    <tr>
+        <td><a href="https://tv.sohu.com/" target = "_blank"> 搜狐 </a></td>
+        <td><a href="http://www.dangdang.com/" target = "_blank">当当</a></td>
+        <td><a href="https://www.kanzhun.com/" target = "_blank">看准</a></td>
+        <td><a href="https://music.migu.cn/" target = "_blank" >咪咕</a> </td>
+        <td></td>
+        <td></td>
+    </tr>
+        <tr>
+            <td><a href="http://www.pptv.com/" target = "_blank"> PPTV </a></td>
+            <td><a href="https://www.mogu.com/" target = "_blank">蘑菇街</a></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table></div>
+<div id="biao2" class="">
+    <table style="border-spacing: 5px 40px">
+        <tr>
+        <td><input type="text" id="wangzhi1" class="wangzhi"></td>
+        <td><input type="button" value="提交" id="tijiao1" class="tijiao"></td>
+        </tr>
+
+        <tr>
+            <td><input type="text" id="wangzhi2" class="wangzhi"></td>
+            <td><input type="button" value="提交" id="tijiao2" class="tijiao"></td>
+        </tr>
+
+        <tr>
+        <td><input type="text" id="wangzhi3" class="wangzhi"></td>
+        <td><input type="button" value="提交" id="tijiao3" class="tijiao"></td>
+        </tr>
+
+        <tr>
+        <td><input type="text" id="wangzhi4" class="wangzhi"></td>
+        <td><input type="button" value="提交" id="tijiao4" class="tijiao"></td>
+        </tr>
+
+        <tr>
+            <td><input type="text" id="wangzhi5" class="wangzhi"></td>
+            <td><input type="button" value="背景" id="tijiao5" class="tijiao"></td>
+        </tr>
+    </table>
+</div>
+
+<div id="biao3" class="">
+    <table style="border-spacing: 5px 40px">
+        <tr>
+            <td><input type="text" id="wangzhi6" class="wangzhi"></td>
+            <td><input type="button" value="提交" id="tijiao6" class="tijiao"></td>
+        </tr>
+
+        <tr>
+            <td><input type="text" id="wangzhi7" class="wangzhi"></td>
+            <td><input type="button" value="提交" id="tijiao7" class="tijiao"></td>
+        </tr>
+
+        <tr>
+            <td><input type="text" id="wangzhi8" class="wangzhi"></td>
+            <td><input type="button" value="提交" id="tijiao8" class="tijiao"></td>
+        </tr>
+
+        <tr>
+            <td><input type="text" id="wangzhi9" class="wangzhi"></td>
+            <td><input type="button" value="提交" id="tijiao9" class="tijiao"></td>
+        </tr>
+
+        <tr>
+            <td><input type="text" id="wangzhi10" class="wangzhi" placeholder="网易云歌曲id"></td>
+            <td><input type="button" value="音乐" id="tijiao10" class="tijiao"></td>
+        </tr>
+    </table>
+</div>
+
+
+<select id="sel">
+    <option value="scj" >&nbsp;收藏夹</option>
+    <option value="tubiao" >&nbsp;自定义图标</option>
+    <option value="lianjie" >&nbsp;自定义链接</option>
+    <option value="null"  selected > </option>
+</select>
+</div>
+
+
+
+
+<form action="http://www.baidu.com/s?word=" target= "_blank">
+    <div class="search">
+        <input id="shuru" type="text" name="word" class="text" style="height: 50px;width: 600px;background: snow;border: black 2px solid">
+        &nbsp;&nbsp;&nbsp;
+        <input id="shuchu" type="submit" value=" " class="text" style="width: 100px;height: 52px;background: black;border: 0px">
+    </div>
+</form>
+
+<div id="yc1">
+    <div id="yc2"></div>
+    <br>
+    <label class="btlab">
+        <input type="checkbox" id="bjbtn">
+        <span>&nbsp;日间&nbsp;&nbsp;暗夜</span>
+    </label>
+
+    <br><br>
+    <label class="btlab">
+        <input type="checkbox" id="mfbtn">
+        <span>&nbsp;魔方&nbsp;&nbsp;隐藏</span>
+    </label>
+
+    <br><br>
+    <label class="btlab">
+        <input type="checkbox" id="lbbtn">
+        <span>&nbsp;轮播&nbsp;&nbsp;隐藏</span>
+    </label>
+
+    <br><br>
+    <label class="btlab">
+        <input type="checkbox" checked id="playerbtn">
+        <span>&nbsp;音乐&nbsp;&nbsp;隐藏</span>
+    </label>
+
+    <br><br>
+    <label class="btlab">
+        <input type="checkbox" checked id="jsbbtn">
+        <span>&nbsp;记事&nbsp;&nbsp;隐藏</span>
+    </label>
+</div>
+
+
+
+<div class="box" id="box">
+        <div><img src="picture/22331.gif" alt=""></div>
+        <div><img src="picture/22332.gif" alt=""></div>
+        <div><img src="picture/22333.gif" alt=""></div>
+        <div><img src="picture/22334.gif" alt=""></div>
+        <div><img src="picture/22335.gif" alt=""></div>
+        <div><img src="picture/22336.gif" alt=""></div>
+</div>
+
+
+
+<div class="playerbg-box">
+<div class="playerbg">
+    <p id="songName"></p>
+</div>
+    <div><img src="picture/qq.png" id="play" class="play"></div>
+</div>
+
+<audio id="myMusic" src="" loop="loop"></audio>
+
+<div class="lb-box">
+<div class="lbj" id="lbj">
+    <div id="lbtn">
+        <input type="button" id="lbtn0" class="lbtn">
+        <input type="button" id="lbtn1" class="lbtn">
+        <input type="button" id="lbtn2" class="lbtn">
+    </div>
+    <img src="picture/feiji.png" alt=""  class="lbphoto">
+    <img src="picture/hehua.png" alt="" hidden class="lbphoto">
+    <img src="picture/shaonv.png" alt="" hidden class="lbphoto">
+</div>
+</div>
+
+<div id="tk" ></div>
+<div id="tk2" hidden></div>
+
+<div class="wrap" id="wrap">
+    <!-- 播放器主体区域 -->
+    <div class="play_wrap" id="player">
+        <div class="search_bar">
+            <img src="images/flowers.png" alt="" id="flower">
+            <!-- 搜索歌曲 -->
+            <input type="text"  v-model="query" @keyup.enter="searchMusic" >
+            <img src="images/zoom.png" alt="" id="zoom" @click="searchMusic">
+        </div>
+        <div class="center_con">
+            <!-- 搜索歌曲列表 -->
+            <div class='song_wrapper'>
+                <ul class="song_list">
+                    <li v-for="item in musicList">
+                        <a href="javascript:;" @click="playMusic(item.id),play2()" ></a>
+                        <b>{{ item.name }}</b>
+                        <span v-if="item.mvid!=0" @click="playMV(item.mvid)"><i><img src="images/mvjiantou.png" alt=""></i></span>
+                    </li>
+                </ul>
+                <img src="images/line.png" class="switch_btn" alt="">
+            </div>
+            <!-- 歌曲信息容器 -->
+            <div class="player_con" :class="{playing:isPlaying}">
+                <img :src="musicCover" class="cover autoRotate">
+            </div>
+            <!-- 评论容器 -->
+            <div class="comment_wrapper">
+                <div class='comment_list'>
+                    <dl v-for="item in hotComments">
+                        <dt><img :src="item.user.avatarUrl" alt=""></dt>
+
+                        <dd class="detail">
+                            {{ item.content }}
+                        </dd>
+                    </dl>
+                </div>
+                <img src="images/line.png" class="right_line">
+            </div>
+        </div>
+
+
+        <div class="audio_con">
+            <div class="plbg">
+                <img src="images/bofang.png" id="bofang" @click="play()">
+            </div>
+        </div>
+        <audio ref='audio'   :src="musicUrl"  autoplay  loop  class="myaudio"></audio>
+
+        <div class="video_con" v-show="isShow" style="display: none;">
+            <video :src="mvUrl" controls="controls"></video>
+            <div class="mask" @click="hide"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+<script type="text/javascript" src="Webjs.js"></script>
+<script src="player/index.js"></script>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 官网提供的 axios 在线地址 -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+var app = new Vue(
+    {
+    el: "#jishiben",
+    data: {
+    list: [],
+    inputValue: "",
+    },
+    methods: {
+    add: function(){
+    this.list.push(this.inputValue)},
+    remove: function () {
+    this.list.splice(0,10)
+    }
+    }
+}
+)
+</script>
+
+</html>
